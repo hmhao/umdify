@@ -9,6 +9,9 @@
 		"url": "https://github.com/zship/umdify.git"
 	},
 	"license": "MIT",
+	"scripts": {
+		"test": "node test/index.js"
+	},
 	"main": "umdify.js",
 	"dependencies": {
 		"esprima": "1.x"
