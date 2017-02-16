@@ -5,6 +5,6 @@ define(function() {
 
 	});
 
-	return A;
+	return B;
 });
 
