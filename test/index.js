@@ -7,7 +7,7 @@ var files = fs.readdirSync(dir);
 files.forEach(function(file) {
     var contents = fs.readFileSync(path.join(dir, file), 'utf8');
     contents = umdify(contents, {
-        moduleName: file.split('.')[0].toUpperCase()
+        namespace: file.split('.')[0].toUpperCase()
     });
     var dest = path.join(__dirname, 'dist', file);
     fs.writeFileSync(dest, contents);
