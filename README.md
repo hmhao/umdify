@@ -24,11 +24,19 @@ npm install umdify
 Usage
 -----
 
-### *String* umdify( *String* contents, *String* [moduleName] )
+### *String* umdify( *String* contents, *Object* [options] )
 
-Converts `contents` (a valid AMD JavaScript module) to UMD format. `moduleName`
-is only required if you want to support browser globals, and will be the name
-of the exported `window` property.
+#### `contents`
+Converts it (a valid AMD JavaScript module) to UMD format. 
+#### `options` 
+`options.namespace` : String. Only required if you want to support browser globals, 
+and will be the name of the exported `window` property.
+
+`options.template` : String. Specifies the path to a file containing a lodash template. 
+Only required if you want to use custom output format.
+
+`options.templateSource` : String. Specifies the lodash template source. If specified, overrides template. 
+Only required if you want to use custom output format.
 
 Example (node.js):
 
@@ -37,7 +45,9 @@ var fs = require('fs');
 var umdify = require('umdify');
 
 var contents = fs.readFileSync('src/myModule.js', 'utf8');
-contents = umdify(contents);
+contents = umdify(contents, {
+    namespace: 'myModule'
+});
 fs.writeFileSync('dist/myModule.js', contents);
 ```
 
